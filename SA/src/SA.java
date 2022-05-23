@@ -3,8 +3,10 @@ import java.util.Scanner;
 public class SA {
 
 	public static void main(String[] args) {
+		
+		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
-		String professor, turma, disciplina;
+		String situacao,professor, turma, disciplina;
 		int numAluno, numNota, i = 0, contNota = 0;
 		double media;
 		
@@ -23,13 +25,29 @@ public class SA {
 		System.out.print("Informe o número de avaliações aplicadas: ");
 		numNota = sc.nextInt();
 		
-		double notas[] = new double[numAluno*numNota];
+		double notas[] = new double[(numAluno*numNota)];
+		String alunos[] = new String[numAluno];
 		
-		String alunos [] = new String[numAluno];
+		while(true) {
+			
+		
+		System.out.print("\nNome do " + (i + 1) + "° aluno: ");
+		alunos[i] = sc.next();
+		
+		i++;
+		
+		for(int x = 1; x <= numNota; x++){
+			System.out.print(x + "° nota: ");
+			notas[contNota] = sc.nextDouble();
+			contNota++;
+		}
+		
+		if(i == numAluno) {
+			break;
+		}
+		}
 		
 		
-		
-		sc.close();
 	}
 
 }
